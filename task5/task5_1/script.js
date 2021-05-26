@@ -1,4 +1,4 @@
-class User {
+export class User {
 
     constructor(name, surname, email, yearOfBirth) {
         this.name = name,
@@ -11,8 +11,14 @@ class User {
         return `${ this.name } ${ this.surname }`;
     }
     getAge() {
-        return new Date().getFullYear() - this.yearOfBirth
+        return new Date().getFullYear() - this.yearOfBirth;
     }
 };
 
-let newUser = new User('Ivan', 'Ivanov', 'ivanovIV@spaces.ru', 1996)
+let newUser = new User('Ivan', 'Ivanov', 'ivanovIV@spaces.ru', 1996);
+
+// console.log(newUser);
+
+// console.log(newUser.getFullname());
+
+// console.log(newUser.getAge());
