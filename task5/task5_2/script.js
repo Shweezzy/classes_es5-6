@@ -9,7 +9,6 @@ class Guest extends User {
 }
 
 class Client extends Guest {
-
     write() {
         return `I'm ${this.name}. I can write.`;
     }
@@ -27,17 +26,10 @@ class Admin extends Moderator {
     }
 }
 
-
-
-
-
-
-
-
-let newAdmin = new Admin('Anastasia', 'Semerenko', 'lyuba22@gmai.com', 1999);
-let newModerator = new Moderator('Anna', 'Petrenko', 'pety27@gmai.com', 1998);
-let newClient = new Client('Lisa', 'Kulyk', 'kulya52@gmai.com', 1986);
-let newGuest = new Guest('Dimitry', 'Noisenko', 'nosok99@gmai.com', 1999);
+let newAdmin = new Admin('Anastasia', 'Semerenko', 'lyuba22@spaces.com', 1999);
+let newModerator = new Moderator('Anna', 'Petrenko', 'pety27@spaces.com', 1998);
+let newClient = new Client('Lisa', 'Kulyk', 'kulya52@spaces.com', 1986);
+let newGuest = new Guest('Dimitry', 'Noisenko', 'nosok99@spaces.com', 1999);
 
 // console.log(newAdmin.remove())
 // console.log(newModerator.update())

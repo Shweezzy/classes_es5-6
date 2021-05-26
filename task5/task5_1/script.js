@@ -10,6 +10,7 @@ export class User {
     getFullname() {
         return `${ this.name } ${ this.surname }`;
     }
+
     getAge() {
         return new Date().getFullYear() - this.yearOfBirth;
     }
