@@ -1,5 +1,5 @@
 //sub-task 1
-class User {
+export class User {
     constructor(name, surname, email, yearOfBirth) {
         this.name = name,
             this.surname = surname,
@@ -17,7 +17,7 @@ class User {
 };
 
 //sub-task 2
-class Admin extends User {
+export class Admin extends User {
     read() {
         return `I'm ${this.name}. I can read.`;
     }
@@ -35,7 +35,7 @@ class Admin extends User {
     }
 }
 
-class Moderator extends User {
+export class Moderator extends User {
     read() {
         return `I'm ${this.name}. I can read.`;
     }
@@ -49,7 +49,7 @@ class Moderator extends User {
     }
 }
 
-class Client extends User {
+export class Client extends User {
     read() {
         return `I'm ${this.name}. I can read.`;
     }
@@ -58,7 +58,7 @@ class Client extends User {
     }
 }
 
-class Guest extends User {
+export class Guest extends User {
     read() {
         return `I'm ${this.name}. I can read.`;
     }

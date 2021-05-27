@@ -1,4 +1,4 @@
-function User(name, surname, email, yearOfBirth) {
+const User = function (name, surname, email, yearOfBirth) {
     this.name = name;
     this.surname = surname;
     this.email = email;
@@ -14,7 +14,7 @@ User.prototype.getAge = function () {
 };
 
 //sub-task2
-function Guest(name, surname, email, yearOfBirth) {
+const Guest = function (name, surname, email, yearOfBirth) {
     User.call(this, name, surname, email, yearOfBirth);
 };
 
@@ -25,7 +25,7 @@ Guest.prototype.read = function () {
     return `I'm ${this.name}. I can read.`;
 };
 
-function Client(...arg) {
+const Client = function (...arg) {
     User.call(this, ...arg);
 };
 
@@ -39,7 +39,7 @@ Client.prototype.write = function () {
     return `I'm ${this.name}. I can write.`;
 };
 
-function Moderator(...arg) {
+const Moderator = function (...arg) {
     User.call(this, ...arg);
 };
 
@@ -56,7 +56,7 @@ Moderator.prototype.update = function () {
     return `I'm ${this.name}. I can update.`;
 };
 
-function Admin(...arg) {
+const Admin = function (...arg) {
     User.call(this, ...arg);
 };
 
@@ -81,7 +81,8 @@ const admin = new Admin("Dmytro", "Yummy", "dmytro@test.com", 1995);
 const moderator = new Moderator("Alex", "Morti", "alex@test.com", 1982);
 const client = new Client("John", "Smith", "john@test.com", 1976);
 const guest = new Guest("Robert", "Merlo", "robert@test.com", 1999);
-
+console.log(admin.getAge())
+console.log(admin.remove())
 admin.getAge();
 admin.getFullname();
 admin.read();
