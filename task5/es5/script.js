@@ -1,4 +1,4 @@
-const User = function (name, surname, email, yearOfBirth) {
+export const User = function (name, surname, email, yearOfBirth) {
     this.name = name;
     this.surname = surname;
     this.email = email;
@@ -12,51 +12,8 @@ User.prototype.getFullname = function () {
 User.prototype.getAge = function () {
     return new Date().getFullYear() - this.yearOfBirth;
 };
-
-//sub-task2
-const Guest = function (name, surname, email, yearOfBirth) {
-    User.call(this, name, surname, email, yearOfBirth);
-};
-
-Guest.prototype = Object.create(User.prototype);
-Guest.prototype.constructor = Guest;
-
-Guest.prototype.read = function () {
-    return `I'm ${this.name}. I can read.`;
-};
-
-const Client = function (...arg) {
-    User.call(this, ...arg);
-};
-
-Client.prototype = Object.create(User.prototype);
-Client.prototype.constructor = Client;
-
-Client.prototype.read = function () {
-    return `I'm ${this.name}. I can read.`;
-};
-Client.prototype.write = function () {
-    return `I'm ${this.name}. I can write.`;
-};
-
-const Moderator = function (...arg) {
-    User.call(this, ...arg);
-};
-
-Moderator.prototype = Object.create(User.prototype);
-Moderator.prototype.constructor = Moderator;
-
-Moderator.prototype.read = function () {
-    return `I'm ${this.name}. I can read.`;
-};
-Moderator.prototype.write = function () {
-    return `I'm ${this.name}. I can write.`;
-};
-Moderator.prototype.update = function () {
-    return `I'm ${this.name}. I can update.`;
-};
-
-const Admin = function (...arg) {
+//this, name, surname, email, yearOfBirth
+export const Admin = function (...arg) {
     User.call(this, ...arg);
 };
 
@@ -76,13 +33,55 @@ Admin.prototype.remove = function () {
     return `I'm ${this.name}. I can remove.`;
 };
 
+export const Moderator = function (...arg) {
+    User.call(this, ...arg);
+};
+
+Moderator.prototype = Object.create(User.prototype);
+Moderator.prototype.constructor = Moderator;
+
+Moderator.prototype.read = function () {
+    return `I'm ${this.name}. I can read.`;
+};
+Moderator.prototype.write = function () {
+    return `I'm ${this.name}. I can write.`;
+};
+Moderator.prototype.update = function () {
+    return `I'm ${this.name}. I can update.`;
+};
+
+export const Client = function (...arg) {
+    User.call(this, ...arg);
+};
+
+Client.prototype = Object.create(User.prototype);
+Client.prototype.constructor = Client;
+
+Client.prototype.read = function () {
+    return `I'm ${this.name}. I can read.`;
+};
+Client.prototype.write = function () {
+    return `I'm ${this.name}. I can write.`;
+};
+// ..arg
+// this, ...arg
+export const Guest = function (name, surname, email, yearOfBirth) {
+    User.call(this, name, surname, email, yearOfBirth);
+};
+
+Guest.prototype = Object.create(User.prototype);
+Guest.prototype.constructor = Guest;
+
+Guest.prototype.read = function () {
+    return `I'm ${this.name}. I can read.`;
+};
+
 
 const admin = new Admin("Dmytro", "Yummy", "dmytro@test.com", 1995);
 const moderator = new Moderator("Alex", "Morti", "alex@test.com", 1982);
 const client = new Client("John", "Smith", "john@test.com", 1976);
 const guest = new Guest("Robert", "Merlo", "robert@test.com", 1999);
-console.log(admin.getAge())
-console.log(admin.remove())
+
 admin.getAge();
 admin.getFullname();
 admin.read();

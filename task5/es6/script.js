@@ -1,10 +1,9 @@
-//sub-task 1
 export class User {
     constructor(name, surname, email, yearOfBirth) {
-        this.name = name,
-            this.surname = surname,
-            this.email = email,
-            this.yearOfBirth = yearOfBirth
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.yearOfBirth = yearOfBirth;
     }
 
     getFullname() {
@@ -69,7 +68,6 @@ const moderator = new Moderator("Alex", "Morti", "alex@test.com", 1982);
 const client = new Client("John", "Smith", "john@test.com", 1976);
 const guest = new Guest("Robert", "Merlo", "robert@test.com", 1999);
 
-//sub-task 3
 admin.getAge();
 admin.getFullname();
 admin.read();
