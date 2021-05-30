@@ -68,6 +68,17 @@ const moderator = new Moderator("Alex", "Morti", "alex@test.com", 1982);
 const client = new Client("John", "Smith", "john@test.com", 1976);
 const guest = new Guest("Robert", "Merlo", "robert@test.com", 1999);
 
+function getAllMethods(object) {
+    return Object.getOwnPropertyNames(object.__proto__).filter(function (property) {
+        return typeof object[property] === 'function';
+    });
+}
+
+console.log(getAllMethods(admin));
+console.log(getAllMethods(moderator));
+console.log(getAllMethods(client));
+console.log(getAllMethods(guest));
+
 admin.getAge();
 admin.getFullname();
 admin.read();

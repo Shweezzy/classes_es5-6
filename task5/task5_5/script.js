@@ -97,5 +97,3 @@ client.write();
 guest.getAge();
 guest.getFullname();
 guest.read();
-
-console.log(admin.__proto__)
