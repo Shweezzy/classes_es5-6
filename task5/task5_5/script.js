@@ -77,6 +77,18 @@ const admin = userFactory.makeUser("Dmytro", "Yummy", "dmytro@test.com", 1995, '
 const moderator = userFactory.makeUser("Alex", "Morti", "alex@test.com", 1982, 'moderator')
 const client = userFactory.makeUser("John", "Smith", "john@test.com", 1976, 'client');
 const guest = userFactory.makeUser("Robert", "Merlo", "robert@test.com", 1999, 'guest');
+
+function getAllMethods(object) {
+    return Object.getOwnPropertyNames(object.__proto__).filter(function (property) {
+        return typeof object[property] === 'function';
+    });
+}
+
+console.log(getAllMethods(admin));
+console.log(getAllMethods(moderator));
+console.log(getAllMethods(client));
+console.log(getAllMethods(guest));
+
 admin.getAge();
 admin.getFullname();
 admin.read();
