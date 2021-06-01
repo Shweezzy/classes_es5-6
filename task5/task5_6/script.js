@@ -72,103 +72,128 @@ const client = userFactory.makeUser("John", "Smith", "john@test.com", 1976, 'cli
 const guest = userFactory.makeUser("Robert", "Merlo", "robert@test.com", 1999, 'guest');
 
 // second way
-// class User {
-//     create(...arg) {
-//         let [
-//             name,
-//             surname,
-//             email,
-//             yearOfBirth,
-//             role
-//         ] = [
-//             ...arg
-//         ]
-//         let user
+class User1 {
+    create(...arg) {
+        let [
+            name,
+            surname,
+            email,
+            yearOfBirth,
+            role
+        ] = [
+            ...arg
+        ]
+        let user
 
-//         if (arg.includes('admin')) user = new Admin(...arg);
-//         else if (arg.includes('moderator')) user = new Moderator(...arg);
-//         else if (arg.includes('client')) user = new Client(...arg);
-//         else user = new Guest(...arg);
-//         user.getFullname = function () {
-//             console.log(`${name} ${surname}`);
-//         };
+        if (arg.includes('admin')) user = new Admin(...arg);
+        else if (arg.includes('moderator')) user = new Moderator(...arg);
+        else if (arg.includes('client')) user = new Client(...arg);
+        else user = new Guest(...arg);
+        user.getFullname = function () {
+            console.log(`${name} ${surname}`);
+        };
 
-//         user.getAge = function () {
-//             console.log(new Date().getFullYear() - yearOfBirth);
-//         };
+        user.getAge = function () {
+            console.log(new Date().getFullYear() - yearOfBirth);
+        };
 
-//         return user;
-//     }
-// }
+        return user;
+    }
+}
 
-// class Guest {
-//     constructor(...arg) {
-//         //test
-//         [this.name, this.surname] = [...arg]
-//         this.permission = ['read']
-//     }
-//     read() {
-//         console.log(`I'm ${this.name}. I can read.`);
-//     }
-// }
+class Guest1 {
+    constructor(...arg) {
+        //test
+        [this.name, this.surname] = [...arg]
+        this.permission = ['read']
+    }
+    read() {
+        console.log(`I'm ${this.name}. I can read.`);
+    }
+}
 
-// class Client extends Guest {
-//     constructor(name) {
-//         super(name);
-//         this.permission.push('write')
-//     }
-//     write() {
-//         console.log(`I'm ${this.name}. I can write.`);
-//     }
-// }
+class Client1 extends Guest1 {
+    constructor(name) {
+        super(name);
+        this.permission.push('write')
+    }
+    write() {
+        console.log(`I'm ${this.name}. I can write.`);
+    }
+}
 
-// class Moderator extends Client {
-//     constructor(name) {
-//         super(name);
-//         this.permission.push('update')
-//     }
-//     update() {
-//         console.log(`I'm ${this.name}. I can update.`);
-//     }
-// }
-// class Admin extends Moderator {
-//     constructor(name) {
-//         super(name);
-//         this.permission.push('remove')
-//     }
-//     remove() {
-//         console.log(`I'm ${this.name}. I can remove.`);
-//     }
-// }
+class Moderator1 extends Client1 {
+    constructor(name) {
+        super(name);
+        this.permission.push('update')
+    }
+    update() {
+        console.log(`I'm ${this.name}. I can update.`);
+    }
+}
+class Admin1 extends Moderator1 {
+    constructor(name) {
+        super(name);
+        this.permission.push('remove')
+    }
+    remove() {
+        console.log(`I'm ${this.name}. I can remove.`);
+    }
+}
 
 
-// const factory = new User()
-// admin = factory.create("Dimitry", "Yummy", "dmytro@test.com", 1995, "admin");
-// moderator = factory.create("Alex", "Morti", "alex@test.com", 1982, "moderator");
-// client = factory.create("John", "Smith", "john@test.com", 1976, "client");
-// guest = factory.create("Robert", "Merlo", "robert@test.com", 1999, "guest");
+const factory = new User1()
+admin1 = factory.create("Dimitry", "Yummy", "dmytro@test.com", 1995, "admin");
+moderator1 = factory.create("Alex", "Morti", "alex@test.com", 1982, "moderator");
+client1 = factory.create("John", "Smith", "john@test.com", 1976, "client");
+guest1 = factory.create("Robert", "Merlo", "robert@test.com", 1999, "guest");
 
 admin.getAge();
 admin.getFullname();
 admin.read();
 admin.update();
 admin.remove();
-console.log(admin.permission)
+console.log(admin.permission);
 
 moderator.getAge();
 moderator.getFullname();
 moderator.read();
 moderator.write();
 moderator.update();
-console.log(moderator.permission)
+console.log(moderator.permission);
 
 client.getAge();
 client.getFullname();
 client.read();
 client.write();
-console.log(client.permission)
+console.log(client.permission);
 
 guest.getAge();
 guest.getFullname();
 guest.read();
-console.log(guest.permission)
+console.log(guest.permission);
+
+admin1.getAge();
+admin1.getFullname();
+admin1.read();
+admin1.update();
+admin1.remove();
+console.log(admin1.permission);
+
+moderator1.getAge();
+moderator1.getFullname();
+moderator1.read();
+moderator1.write();
+moderator1.update();
+console.log(moderator1.permission);
+
+client1.getAge();
+client1.getFullname();
+client1.read();
+client1.write();
+console.log(client1.permission);
+
+guest1.getAge();
+guest1.getFullname();
+guest1.read();
+console.log(guest1.permission);
